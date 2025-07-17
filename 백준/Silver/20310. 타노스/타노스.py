@@ -1,15 +1,26 @@
 import sys
-n = list(map(int, sys.stdin.readline().rstrip()))
-arr = [0] * 2
-arm = []
-for i in n:
-    if i == 0:
-        arr[0] += 1
-    else:
-        arr[1] += 1
-for i in range(len(arr)):
-    arr[i] = arr[i] // 2
-    arm.append(arr[i] * str(i))
-arm.sort()
-for i in arm:
-    print(i, end = "")
+
+s = list(sys.stdin.readline().rstrip())
+
+n = s.count('0')
+m = s.count('1')
+
+check = 0
+for i in s:
+    if check == m//2:
+        break
+    if i == '1':
+        s.remove(i)
+        check += 1
+
+check = 0
+s = s[::-1]
+for i in s:
+    if check == n//2:
+        break
+    if i == '0':
+        s.remove(i)
+        check += 1
+
+for i in s[::-1]:
+    print(i, end='')
