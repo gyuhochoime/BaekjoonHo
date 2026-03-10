@@ -13,7 +13,7 @@ def bfs(si, sj):
         ci, cj = q.popleft()
         for di, dj in dirs:
             ni, nj = ci + di, cj + dj
-            if 0 <= ni < n and 0 <= nj < n and m <= abs(arr[ci][cj] - arr[ni][nj]) <= k and visited[ni][nj] == 0:
+            if 0 <= ni < n and 0 <= nj < n and visited[ni][nj] == 0 and m <= abs(arr[ci][cj] - arr[ni][nj]) <= k:
                 q.append((ni, nj))
                 visited[ni][nj] = 1
                 popul.append((ni, nj))
