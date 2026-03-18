@@ -4,10 +4,8 @@ def dfs(a, arr):
         ans.append(arr)
         return
     for i in range(1, n + 1):
-        if visited[i] == 0:
-            dfs(a + 1, arr + [i])
+        dfs(a + 1, arr + [i])
 n, m = map(int, sys.stdin.readline().split())
-visited = [0] * (n + 1)
 ans = []
 dfs(0, [])
 for i in ans:
