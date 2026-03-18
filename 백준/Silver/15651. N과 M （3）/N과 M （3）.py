@@ -1,13 +1,14 @@
 import sys
-def DFS(L):
-    if L == m:
-        for j in res:
-            print(j, end = " ")
-        print()
-    else:
-        for i in range(1, n + 1):
-            res[L] = i
-            DFS(L+1)
-n, m = map(int, sys.stdin.readline().rstrip().split())
-res = [0] * m
-DFS(0)
+def dfs(a, arr):
+    if a == m:
+        ans.append(arr)
+        return
+    for i in range(1, n + 1):
+        if visited[i] == 0:
+            dfs(a + 1, arr + [i])
+n, m = map(int, sys.stdin.readline().split())
+visited = [0] * (n + 1)
+ans = []
+dfs(0, [])
+for i in ans:
+    print(*i)
